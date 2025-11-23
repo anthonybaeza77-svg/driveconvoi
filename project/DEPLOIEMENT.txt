@@ -1,0 +1,51 @@
+========================================
+COMMENT METTRE VOTRE SITE EN LIGNE
+========================================
+
+Votre site est prêt ! Suivez ces étapes simples :
+
+ÉTAPE 1 : Télécharger votre projet
+-----------------------------------
+Téléchargez tous les fichiers de votre projet sur votre ordinateur.
+
+
+ÉTAPE 2 : Créer un compte Netlify
+-----------------------------------
+1. Allez sur : https://www.netlify.com/
+2. Cliquez sur "Sign up" (en haut à droite)
+3. Créez un compte (avec email ou GitHub)
+
+
+ÉTAPE 3 : Déployer votre site
+-----------------------------------
+1. Une fois connecté à Netlify, vous verrez votre tableau de bord
+2. Glissez-déposez le DOSSIER ENTIER de votre projet dans la zone indiquée
+   (ou cliquez sur "Add new site" > "Deploy manually")
+3. Attendez 1-2 minutes pendant le déploiement
+
+
+ÉTAPE 4 : Votre site est en ligne !
+-----------------------------------
+Netlify vous donnera une URL automatique (exemple: random-name-123.netlify.app)
+
+Vous pouvez :
+- Changer le nom du site dans les paramètres
+- Ajouter votre propre nom de domaine si vous en avez un
+
+
+IMPORTANT - Variables d'environnement
+---------------------------------------
+Votre site utilise Supabase pour la base de données.
+Les variables sont déjà dans le fichier .env
+
+Si le site ne fonctionne pas après déploiement :
+1. Allez dans "Site settings" sur Netlify
+2. Cliquez sur "Environment variables"
+3. Ajoutez ces deux variables :
+   - VITE_SUPABASE_URL = (copiez depuis votre fichier .env)
+   - VITE_SUPABASE_ANON_KEY = (copiez depuis votre fichier .env)
+
+
+BESOIN D'AIDE ?
+---------------
+Si vous avez des problèmes, je suis là pour vous aider !

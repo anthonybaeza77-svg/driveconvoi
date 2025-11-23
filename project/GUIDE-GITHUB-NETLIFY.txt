@@ -1,0 +1,216 @@
+═══════════════════════════════════════════════════════════════════════════════
+  GUIDE COMPLET : MISE EN LIGNE DU SITE CONVOYAGE
+  Système : Windows
+═══════════════════════════════════════════════════════════════════════════════
+
+📋 TABLE DES MATIÈRES
+1. Installation de Git (si nécessaire)
+2. Récupération du projet
+3. Configuration Git
+4. Mise sur GitHub
+5. Déploiement sur Netlify
+6. Configuration finale
+
+═══════════════════════════════════════════════════════════════════════════════
+ÉTAPE 1 : VÉRIFIER/INSTALLER GIT
+═══════════════════════════════════════════════════════════════════════════════
+
+1.1 Ouvrez PowerShell ou l'Invite de commandes
+    - Appuyez sur Windows + R
+    - Tapez : cmd
+    - Appuyez sur Entrée
+
+1.2 Vérifiez si Git est installé
+    Tapez : git --version
+
+    → Si vous voyez un numéro de version : PASSEZ À L'ÉTAPE 2
+    → Si vous voyez une erreur : CONTINUEZ CI-DESSOUS
+
+1.3 Installation de Git (si nécessaire)
+    a) Allez sur : https://git-scm.com/download/win
+    b) Téléchargez "64-bit Git for Windows Setup"
+    c) Lancez l'installateur
+    d) Cliquez sur "Next" pour toutes les options (valeurs par défaut)
+    e) Attendez la fin de l'installation
+    f) Fermez et rouvrez PowerShell/CMD
+    g) Vérifiez à nouveau : git --version
+
+═══════════════════════════════════════════════════════════════════════════════
+ÉTAPE 2 : RÉCUPÉRATION DU PROJET
+═══════════════════════════════════════════════════════════════════════════════
+
+2.1 Créez un dossier pour vos projets
+    Ouvrez PowerShell et tapez :
+
+    mkdir C:\MesProjets
+    cd C:\MesProjets
+
+2.2 Téléchargez le projet depuis Bolt/Claude
+
+    OPTION A - Si vous êtes sur Bolt.new ou Claude Projects :
+    -------------------------------------------------------
+    1. Cliquez sur le bouton de téléchargement (icône nuage ou download)
+    2. Téléchargez le projet complet (ZIP)
+    3. Extrayez le ZIP dans C:\MesProjets\convoyage-site
+
+    OPTION B - Si vous avez reçu les fichiers autrement :
+    -----------------------------------------------------
+    1. Copiez tous les fichiers du projet
+    2. Collez-les dans C:\MesProjets\convoyage-site
+
+2.3 Naviguez vers le dossier
+    Dans PowerShell :
+
+    cd C:\MesProjets\convoyage-site
+
+═══════════════════════════════════════════════════════════════════════════════
+ÉTAPE 3 : CONFIGURATION GIT (PREMIÈRE FOIS SEULEMENT)
+═══════════════════════════════════════════════════════════════════════════════
+
+Tapez ces commandes (remplacez par vos vraies informations) :
+
+git config --global user.name "Votre Nom"
+git config --global user.email "votre-email@exemple.com"
+
+Note : Utilisez l'email associé à votre compte GitHub
+
+═══════════════════════════════════════════════════════════════════════════════
+ÉTAPE 4 : MISE SUR GITHUB
+═══════════════════════════════════════════════════════════════════════════════
+
+4.1 Dans PowerShell (dans le dossier C:\MesProjets\convoyage-site), tapez :
+
+git init
+git add .
+git commit -m "Initial commit - Site convoyage"
+git remote add origin https://github.com/anthonybaeza77-svg/convoyage-site.git
+git branch -M main
+git push -u origin main
+
+4.2 Authentification GitHub
+    → Lors du push, Windows va vous demander de vous connecter à GitHub
+    → Une fenêtre devrait s'ouvrir automatiquement
+    → Connectez-vous avec vos identifiants GitHub
+    → Autorisez l'accès
+
+4.3 Vérification
+    → Allez sur : https://github.com/anthonybaeza77-svg/convoyage-site
+    → Vous devriez voir tous vos fichiers !
+
+═══════════════════════════════════════════════════════════════════════════════
+ÉTAPE 5 : DÉPLOIEMENT SUR NETLIFY
+═══════════════════════════════════════════════════════════════════════════════
+
+5.1 Créez un compte Netlify
+    a) Allez sur : https://www.netlify.com
+    b) Cliquez sur "Sign Up"
+    c) Choisissez "Sign up with GitHub"
+    d) Autorisez Netlify à accéder à GitHub
+
+5.2 Créez un nouveau site
+    a) Cliquez sur "Add new site" → "Import an existing project"
+    b) Choisissez "GitHub"
+    c) Autorisez l'accès (si demandé)
+    d) Sélectionnez le repository "convoyage-site"
+
+5.3 Configuration du build
+
+    Build command:          npm run build
+    Publish directory:      dist
+
+    Cliquez sur "Deploy site"
+
+5.4 Attendez le déploiement
+    → Netlify va construire et déployer votre site (2-3 minutes)
+    → Vous verrez un URL comme : https://random-name-123456.netlify.app
+
+═══════════════════════════════════════════════════════════════════════════════
+ÉTAPE 6 : CONFIGURATION DES VARIABLES D'ENVIRONNEMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+6.1 Sur Netlify, allez dans :
+    Site settings → Environment variables → Add a variable
+
+6.2 Ajoutez ces variables (UNE PAR UNE) :
+
+    Name:  VITE_SUPABASE_URL
+    Value: [votre URL Supabase]
+
+    Name:  VITE_SUPABASE_ANON_KEY
+    Value: [votre clé Supabase]
+
+    Name:  VITE_GOOGLE_MAPS_API_KEY
+    Value: [votre clé Google Maps]
+
+6.3 Re-déployez le site
+    → Allez dans "Deploys"
+    → Cliquez sur "Trigger deploy" → "Deploy site"
+
+═══════════════════════════════════════════════════════════════════════════════
+ÉTAPE 7 : PERSONNALISER L'URL (OPTIONNEL)
+═══════════════════════════════════════════════════════════════════════════════
+
+7.1 Sur Netlify :
+    Site settings → Domain management → Options
+
+7.2 Cliquez sur "Edit site name"
+    Changez pour quelque chose comme : convoyage-pro
+    → Votre site sera sur : https://convoyage-pro.netlify.app
+
+7.3 Domaine personnalisé (optionnel)
+    Si vous avez acheté un domaine (ex: convoyage.fr) :
+    → Cliquez sur "Add custom domain"
+    → Suivez les instructions
+
+═══════════════════════════════════════════════════════════════════════════════
+🎉 FÉLICITATIONS ! VOTRE SITE EST EN LIGNE !
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Votre code est sur GitHub
+✅ Votre site est déployé sur Netlify
+✅ Les mises à jour futures seront automatiques
+
+═══════════════════════════════════════════════════════════════════════════════
+📝 POUR LES FUTURES MODIFICATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+Quand vous modifiez le code :
+
+1. Naviguez vers le dossier :
+   cd C:\MesProjets\convoyage-site
+
+2. Ajoutez les modifications :
+   git add .
+
+3. Créez un commit :
+   git commit -m "Description de vos modifications"
+
+4. Poussez sur GitHub :
+   git push
+
+→ Netlify déploiera automatiquement les changements !
+
+═══════════════════════════════════════════════════════════════════════════════
+🆘 EN CAS DE PROBLÈME
+═══════════════════════════════════════════════════════════════════════════════
+
+Problème : "git: command not found"
+Solution : Réinstallez Git et redémarrez PowerShell
+
+Problème : "Permission denied" sur GitHub
+Solution : Vérifiez votre authentification GitHub
+
+Problème : Le site ne s'affiche pas correctement
+Solution : Vérifiez les variables d'environnement sur Netlify
+
+Problème : Erreur de build sur Netlify
+Solution : Vérifiez les logs de build dans l'onglet "Deploys"
+
+═══════════════════════════════════════════════════════════════════════════════
+📞 INFORMATIONS UTILES
+═══════════════════════════════════════════════════════════════════════════════
+
+GitHub Repository : https://github.com/anthonybaeza77-svg/convoyage-site
+Netlify Dashboard : https://app.netlify.com
+
+═══════════════════════════════════════════════════════════════════════════════
