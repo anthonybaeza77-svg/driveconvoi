@@ -83,7 +83,7 @@ Note : Utilisez l'email associé à votre compte GitHub
 git init
 git add .
 git commit -m "Initial commit - Site convoyage"
-git remote add origin https://github.com/anthonybaeza77-svg/convoyage-site.git
+git remote add origin https://github.com/anthonybaeza77-svg/driveconvoi.git
 git branch -M main
 git push -u origin main
 
@@ -94,7 +94,7 @@ git push -u origin main
     → Autorisez l'accès
 
 4.3 Vérification
-    → Allez sur : https://github.com/anthonybaeza77-svg/convoyage-site
+    → Allez sur : https://github.com/anthonybaeza77-svg/driveconvoi
     → Vous devriez voir tous vos fichiers !
 
 ═══════════════════════════════════════════════════════════════════════════════
@@ -111,7 +111,7 @@ git push -u origin main
     a) Cliquez sur "Add new site" → "Import an existing project"
     b) Choisissez "GitHub"
     c) Autorisez l'accès (si demandé)
-    d) Sélectionnez le repository "convoyage-site"
+    d) Sélectionnez le repository "driveconvoi"
 
 5.3 Configuration du build
 
@@ -210,7 +210,7 @@ Solution : Vérifiez les logs de build dans l'onglet "Deploys"
 📞 INFORMATIONS UTILES
 ═══════════════════════════════════════════════════════════════════════════════
 
-GitHub Repository : https://github.com/anthonybaeza77-svg/convoyage-site
+GitHub Repository : https://github.com/anthonybaeza77-svg/driveconvoi
 Netlify Dashboard : https://app.netlify.com
 
 ═══════════════════════════════════════════════════════════════════════════════
